@@ -105,10 +105,10 @@ def decide(user_hand, computer_hand):
 			elif computer_hand == '바위':
 				return 'W'
 
-person = User()
+person = User(0, 0, 0)
 
 while person.win + person.lose != 10:
-	print(i, '번째 게임입니다.')
+	print(person.win + person.lose + 1, '번째 게임입니다.')
 	computer = items[rand(0, 2)]
 	user = get_user_input()
 
@@ -127,4 +127,4 @@ while person.win + person.lose != 10:
 
 print("게임이 모두 끝났습니다.")
 print(person.win, "번 이겼습니다.")
-print(person.lost, "번 졌습니다.")
+print(person.lose, "번 졌습니다.")
