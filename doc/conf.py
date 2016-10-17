@@ -30,6 +30,10 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+
+import sys, os, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
