@@ -89,17 +89,17 @@ def decide(user_hand, computer_hand):
 	if user_hand == computer_hand:
 		return 'D'
 	else:
-		if user_hand == 'Scissor':
+		if user_hand == 'Scissor' or user_hand == '2':
 			if computer_hand == 'Rock':
 				return 'L'
 			elif computer_hand == 'Paper':
 				return 'W'
-		elif user_hand == 'Rock':
+		elif user_hand == 'Rock' or user_hand == '1':
 			if computer_hand == 'Paper':
 				return 'L'
 			elif computer_hand == 'Scissor':
 				return 'W'
-		elif user_hand == 'Paper':
+		elif user_hand == 'Paper' or user_hand == '3':
 			if computer_hand == 'Scissor':
 				return 'L'
 			elif computer_hand == 'Rock':
