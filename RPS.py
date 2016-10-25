@@ -71,10 +71,10 @@ class User(object):
 """
 
 def get_user_input():
-	user_hand = input('Input : ')
+	user_hand = input('Input(Rock/Scissor/Paper or 1/2/3) : ')
 	if user_hand not in items:
 		while user_hand not in items:
-			user_hand = input('Input : ')
+			user_hand = input('Input(Rock/Scissor/Paper or 1/2/3) : ')
 	return user_hand
 
 
