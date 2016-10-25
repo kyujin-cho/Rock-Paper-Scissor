@@ -3,7 +3,7 @@ Python code simulating Rock Paper Scissor game.
 """
 
 from random import randint as rand
-items = ['가위', '바위', '보']
+items = ['Scissor', 'Rock', 'Paper']
 win = 0
 lose = 0
 
@@ -71,10 +71,10 @@ class User(object):
 """
 
 def get_user_input():
-	user_hand = input('가위/바위/보 중 하나를 입력하세요')
+	user_hand = input('Input : ')
 	if user_hand not in items:
 		while user_hand not in items:
-			user_hand = input('가위/바위/보 중 하나를 입력하세요')
+			user_hand = input('Input : ')
 	return user_hand
 
 
@@ -89,42 +89,43 @@ def decide(user_hand, computer_hand):
 	if user_hand == computer_hand:
 		return 'D'
 	else:
-		if user_hand == '가위':
-			if computer_hand == '바위':
+		if user_hand == 'Scissor':
+			if computer_hand == 'Rock':
 				return 'L'
-			elif computer_hand == '보':
+			elif computer_hand == 'Paper':
 				return 'W'
-		elif user_hand == '바위':
-			if computer_hand == '보':
+		elif user_hand == 'Rock':
+			if computer_hand == 'Paper':
 				return 'L'
-			elif computer_hand == '가위':
+			elif computer_hand == 'Scissor':
 				return 'W'
-		elif user_hand == '보':
-			if computer_hand == '가위':
+		elif user_hand == 'Paper':
+			if computer_hand == 'Scissor':
 				return 'L'
-			elif computer_hand == '바위':
+			elif computer_hand == 'Rock':
 				return 'W'
+
 
 person = User(0, 0, 0)
 
 while person.win + person.lose != 10:
-	print(person.win + person.lose + 1, '번째 게임입니다.')
+	print("Game #" + str(person.win + person.lose + 1))
 	computer = items[rand(0, 2)]
 	user = get_user_input()
 
 	result = decide(user, computer)
-	
+	print("You've ", end='')
 	if result == 'L':
-		print("졌습니다.")
+		print("Lost.")
 		person.addLose()
 	elif result == 'D':
-		print("비겼습니다.")
+		print("Draw.")
 		person.addDraw()
 	else:
-		print("이겼습니다.")
+		print("Won.")
 		person.addWin()
 
 
-print("게임이 모두 끝났습니다.")
-print(person.win, "번 이겼습니다.")
-print(person.lose, "번 졌습니다.")
+print("Game ended.")
+print("You've won", person.win, "times.")
+print("You've lose", person.lose, "times.")
